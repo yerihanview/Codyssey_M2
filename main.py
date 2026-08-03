@@ -47,17 +47,39 @@ def show_menu():
     print("5. 종료")
     print("=" * 40)
 
+def play(quizzes):
+    if not quizzes:
+        print("등록된 퀴즈가 없습니다. 먼저 퀴즈를 추가하세요.")
+        return 0
+    print(f"\n📝 퀴즈를 시작합니다! (총 {len(quizzes)}문제)\n")
+    score = 0
+    for i, quiz in enumerate(quizzes, start=1):
+        print("-" * 40)
+        print(f"[문제 {i}]")
+        quiz.show()
+        user_choice = ask_int("정답 입력: ", 1, 4)
+        if quiz.is_correct(user_choice):
+            print("✅ 정답입니다!")
+            score += 1
+        else:
+            print(f"❌ 오답입니다. 정답은 {quiz.answer}번입니다.")
+    print("=" * 40)
+    print(f"🏆 결과: {len(quizzes)}문제 중 {score}문제 정답!")
+    print("=" * 40)
+    return score
 
 def main():
+    quizzes = list(DEFAULT_QUIZZES)
     while True:
         show_menu()
         choice = ask_int("선택: ", 1, 5)
-        if choice == 5:
+        if choice == 1:
+            play(quizzes)
+        elif choice == 5:
             print("게임을 종료합니다. 안녕히 가세요!")
             break
         else:
             print(f"[{choice}번 기능은 곧 만듭니다]")
-
 
 if __name__ == "__main__":
     main()
