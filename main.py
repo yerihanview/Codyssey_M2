@@ -12,6 +12,14 @@ class Quiz:
     def is_correct(self, user_choice):
         return user_choice == self.answer
 
+DEFAULT_QUIZZES = [
+    Quiz("태양계에서 가장 큰 행성은?", ["수성", "목성", "화성", "지구"], 2),
+    Quiz("대한민국의 수도는?", ["부산", "인천", "서울", "대구"], 3),
+    Quiz("물의 화학식은?", ["CO₂", "H₂O", "O₂", "NaCl"], 2),
+    Quiz("1년은 몇 개월인가?", ["10개월", "11개월", "12개월", "13개월"], 3),
+    Quiz("무지개는 보통 몇 색으로 표현하나?", ["5색", "6색", "7색", "8색"], 3),
+]
+
 def ask_int(prompt, low, high):
     """low~high 사이의 정수를 안전하게 입력받는다."""
     while True:
