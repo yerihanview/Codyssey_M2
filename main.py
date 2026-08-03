@@ -95,22 +95,35 @@ def list_quizzes(quizzes):
         print(f"[{i}] {quiz.question}")
     print("-" * 40)
 
+def show_score(best_score, has_played):
+    if not has_played:
+        print("아직 퀴즈를 풀지 않았습니다.")
+        return
+    print(f"\n🏆 최고 점수: {best_score}문제 정답")
+
+
 def main():
     quizzes = list(DEFAULT_QUIZZES)
+    best_score = 0
+    has_played = False
     while True:
         show_menu()
         choice = ask_int("선택: ", 1, 5)
         if choice == 1:
-            play(quizzes)
+            score = play(quizzes)
+            has_played = True
+            if score > best_score:
+                best_score = score
+                print("🎉 새로운 최고 점수입니다!")
+        elif choice == 2:
+            add_quiz(quizzes)
+        elif choice == 3:
+            list_quizzes(quizzes)
+        elif choice == 4:
+            show_score(best_score, has_played)
         elif choice == 5:
             print("게임을 종료합니다. 안녕히 가세요!")
             break
-        elif choice == 2: 
-            add_quiz(quizzes)
-        elif choice == 3: 
-            list_quizzes(quizzes)
-        else:
-            print(f"[{choice}번 기능은 곧 만듭니다]")
 
 if __name__ == "__main__":
     main()
