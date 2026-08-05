@@ -49,6 +49,9 @@ json
 ​
 ```
 
+## 개발 환경
+![VSCode](docs/screenshots/vscode.png)
+
 ## 실행 화면
 ![메뉴](docs/screenshots/menu.png)
 ![풀기](docs/screenshots/play.png)
@@ -149,3 +152,4 @@ yerihan3763@c5r8s6 Codyssey_M2 % git log --oneline --graph --all
 * 32670c6 Feat: 메뉴 화면 출력
 * f0d90cc 프로젝트 초기 설정(.gitignore, READE.md 뼈대)
 ```
+![커밋그래프](docs/screenshots/commit_graph.png)
