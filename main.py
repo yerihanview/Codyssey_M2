@@ -51,19 +51,49 @@ class QuizBank:
     """퀴즈 보관 + 최고점수 (데이터 담당). 저장 기능은 Step 10에서 추가."""
 
     def __init__(self):
-        self.quizzes = list(DEFAULT_QUIZZES)
+        self.quizzes = []
         self.best_score = 0
+        self.load()
+
+    def load(self):
+        if not os.path.exists(STATE_FILE):
+            self.quizzes = list(DEFAULT_QUIZZES)
+            self.best_score = 0
+            print("📂 저장된 데이터가 없어 기본 퀴즈로 시작합니다.")
+            return
+        try:
+            with open(STATE_FILE, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            self.quizzes = [Quiz.from_dict(d) for d in data["quizzes"]]
+            self.best_score = data["best_score"]
+            print(f"📂 저장된 데이터를 불러왔습니다. (퀴즈 {len(self.quizzes)}개, 최고점수 {self.best_score})")
+        except (json.JSONDecodeError, KeyError, OSError):
+            print("⚠️ 데이터 파일이 손상되어 기본 퀴즈로 복구합니다.")
+            self.quizzes = list(DEFAULT_QUIZZES)
+            self.best_score = 0
+
+    def save(self):
+        data = {
+            "quizzes": [quiz.to_dict() for quiz in self.quizzes],
+            "best_score": self.best_score,
+        }
+        try:
+            with open(STATE_FILE, "w", encoding="utf-8") as f:
+                json.dump(data, f, ensure_ascii=False, indent=2)
+        except OSError:
+            print("⚠️ 저장 중 오류가 발생했습니다.")
 
     def is_empty(self):
         return len(self.quizzes) == 0
 
     def add(self, quiz):
         self.quizzes.append(quiz)
+        self.save()
 
     def update_best_score(self, score):
-        """더 높으면 갱신하고 True, 아니면 False."""
         if score > self.best_score:
             self.best_score = score
+            self.save()
             return True
         return False
 
@@ -145,20 +175,25 @@ class QuizGame:
         print(f"\n🏆 최고 점수: {self.bank.best_score}문제 정답")
 
     def run(self):
-        while True:
-            self.show_menu()
-            choice = ask_int("선택: ", 1, 5)
-            if choice == 1:
-                self.play()
-            elif choice == 2:
-                self.add_quiz()
-            elif choice == 3:
-                self.list_quizzes()
-            elif choice == 4:
-                self.show_score()
-            elif choice == 5:
-                print("게임을 종료합니다. 안녕히 가세요!")
-                break
+        try:
+            while True:
+                self.show_menu()
+                choice = ask_int("선택: ", 1, 5)
+                if choice == 1:
+                    self.play()
+                elif choice == 2:
+                    self.add_quiz()
+                elif choice == 3:
+                    self.list_quizzes()
+                elif choice == 4:
+                    self.show_score()
+                elif choice == 5:
+                    print("게임을 종료합니다. 안녕히 가세요!")
+                    break
+        except (KeyboardInterrupt, EOFError):
+            print("\n프로그램을 안전하게 종료합니다.")
+        finally:
+            self.bank.save()
 
 
 if __name__ == "__main__":
