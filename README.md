@@ -41,3 +41,36 @@ my-quiz-game/
 ![풀기](docs/screenshots/play.png)
 ![추가](docs/screenshots/add_quiz.png)
 ![점수](docs/screenshots/score.png)
+
+# clone/pull 실습 완료
+yerihan3763@c5r8s6 M2 % ls -la
+total 0
+drwxr-xr-x   4 yerihan3763  yerihan3763  128  8  5 19:18 .
+drwxr-x---+ 24 yerihan3763  yerihan3763  768  8  5 15:55 ..
+drwxr-xr-x   6 yerihan3763  yerihan3763  192  8  4 10:08 Codyssey_M2
+drwxr-xr-x   5 yerihan3763  yerihan3763  160  8  3 12:35 Guide
+yerihan3763@c5r8s6 M2 % git clone https://github.com/yerihanview/Codyssey_M2.git M2_clone
+'M2_clone'에 복제합니다...
+remote: Enumerating objects: 34, done.
+remote: Counting objects: 100% (34/34), done.
+remote: Compressing objects: 100% (18/18), done.
+remote: Total 34 (delta 17), reused 31 (delta 14), pack-reused 0 (from 0)
+오브젝트를 받는 중: 100% (34/34), 7.82 KiB | 7.82 MiB/s, 완료.
+델타를 알아내는 중: 100% (17/17), 완료.
+yerihan3763@c5r8s6 M2 % ls -la
+total 0
+drwxr-xr-x   5 yerihan3763  yerihan3763  160  8  5 19:19 .
+drwxr-x---+ 24 yerihan3763  yerihan3763  768  8  5 15:55 ..
+drwxr-xr-x   6 yerihan3763  yerihan3763  192  8  4 10:08 Codyssey_M2
+drwxr-xr-x   5 yerihan3763  yerihan3763  160  8  3 12:35 Guide
+drwxr-xr-x   6 yerihan3763  yerihan3763  192  8  5 19:19 M2_clone
+yerihan3763@c5r8s6 M2 % cd M2_clone
+yerihan3763@c5r8s6 M2_clone % ls -la
+total 32
+drwxr-xr-x   6 yerihan3763  yerihan3763   192  8  5 19:19 .
+drwxr-xr-x   5 yerihan3763  yerihan3763   160  8  5 19:19 ..
+drwxr-xr-x  12 yerihan3763  yerihan3763   384  8  5 19:19 .git
+-rw-r--r--   1 yerihan3763  yerihan3763    39  8  5 19:19 .gitignore
+-rw-r--r--   1 yerihan3763  yerihan3763  7100  8  5 19:19 main.py
+-rw-r--r--   1 yerihan3763  yerihan3763  1305  8  5 19:19 README.md
+
