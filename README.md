@@ -74,3 +74,54 @@ drwxr-xr-x  12 yerihan3763  yerihan3763   384  8  5 19:19 .git
 -rw-r--r--   1 yerihan3763  yerihan3763  7100  8  5 19:19 main.py
 -rw-r--r--   1 yerihan3763  yerihan3763  1305  8  5 19:19 README.md
 
+
+yerihan3763@c5r8s6 M2_clone % vi README.md
+yerihan3763@c5r8s6 M2_clone % git add README.md
+yerihan3763@c5r8s6 M2_clone % git commit -m "Docs: clone/pull 실습 반영"
+[main 5dac0ad] Docs: clone/pull 실습 반영
+ 1 file changed, 34 insertions(+), 1 deletion(-)
+yerihan3763@c5r8s6 M2_clone % git push
+오브젝트 나열하는 중: 5, 완료.
+오브젝트 개수 세는 중: 100% (5/5), 완료.
+Delta compression using up to 6 threads
+오브젝트 압축하는 중: 100% (3/3), 완료.
+오브젝트 쓰는 중: 100% (3/3), 1.58 KiB | 1.58 MiB/s, 완료.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/yerihanview/Codyssey_M2.git
+   d32e9df..5dac0ad  main -> main
+yerihan3763@c5r8s6 M2_clone % 
+yerihan3763@c5r8s6 M2_clone % 
+yerihan3763@c5r8s6 M2_clone % cd ../
+
+
+
+yerihan3763@c5r8s6 Codyssey_M2 % git pull
+
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 3 (delta 0), pack-reused 0 (from 0)
+오브젝트 묶음 푸는 중: 100% (3/3), 1.56 KiB | 798.00 KiB/s, 완료.
+https://github.com/yerihanview/Codyssey_M2 URL에서
+   d32e9df..5dac0ad  main       -> origin/main
+업데이트 중 d32e9df..5dac0ad
+Fast-forward
+ README.md | 35 ++++++++++++++++++++++++++++++++++-
+ 1 file changed, 34 insertions(+), 1 deletion(-)
+
+
+
+# 커밋 그래프
+yerihan3763@c5r8s6 Codyssey_M2 % git log --oneline --graph --all
+* 5dac0ad (HEAD -> main, origin/main, origin/HEAD) Docs: clone/pull 실습 반영
+* d32e9df Docs: README.md 작성
+* 3d10c39 Feat: 안전한 종료처리(Ctrl+C/EOF)
+* 18a3242 Feat: state.json 저장/불러오기
+* 158dfb3 Feat: QuizBank로 보관·저장 책임 분리
+* 529f88f 점수 확인 기능
+* 3be0efa Feat: 퀴즈 목록 기능
+* a969572 (feature/play) Feat: 퀴즈 풀기 기능
+* cba8945 Feat: 기본 퀴즈 5개 추가
+* d141645 Feat: Quiz 클래스 추가
+* 32670c6 Feat: 메뉴 화면 출력
+* f0d90cc 프로젝트 초기 설정(.gitignore, READE.md 뼈대)
