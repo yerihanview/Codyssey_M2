@@ -150,10 +150,10 @@ if __name__ == "__main__":
 > 💡 `def`는 함수 정의, `"="*40`은 문자열 40회 반복, `if __name__ == "__main__":`은 "직접 실행 시작 지점".
 
 ---
-**Lesson __main목적**
- 독립적인 프로그램으로도 작동하고, 다른 프로그램의 부품(모듈)으로도 안전하게 재사용될 수 있도록
-
-**Lesson 비유***
+## Lesson
+**if __main__ == "__main__": 의 목적**
+- 독립적인 프로그램으로도 작동하고, 다른 프로그램의 부품(모듈)으로도 안전하게 재사용될 수 있도록
+- 비유하자면,
 실행할 때, 어떻게 오셨어요? 물어보면 
 1. 전 메인 자격으로 왔습니다. 
 2. 전 import로 호출되어 왔습니다. 
@@ -165,13 +165,14 @@ if __name__ == "__main__":
 🔷 `git add main.py && git commit -m "Feat: 메뉴 화면 출력"`
 
 ---
-**Lesson 코멘트 컨벤션**
-혼자 할 때는 자유지만, 남과 함께할 때는 매너이자 실력이다
- Fix: 버그를 수정했을 때
- Docs: 문서(README 등)만 수정했을 때
- Style: 코드 로직 변경 없이 서식, 세미콜론 누락 등을 수정했을 때
- Refactor: 기능 추가나 버그 수정 없이 코드 구조만 개선했을 때
- Test: 테스트 코드를 추가하거나 수정했을 때
+## Lesson 
+**코멘트 컨벤션**
+- 혼자 할 때는 자유지만, 남과 함께할 때는 매너이자 실력이다
+- Fix: 버그를 수정했을 때
+- Docs: 문서(README 등)만 수정했을 때
+- Style: 코드 로직 변경 없이 서식, 세미콜론 누락 등을 수정했을 때
+- Refactor: 기능 추가나 버그 수정 없이 코드 구조만 개선했을 때
+- Test: 테스트 코드를 추가하거나 수정했을 때
 
 ---
 
@@ -214,6 +215,7 @@ def main():
 🧠 "continue와 break는 어떻게 다른가?"
 
 ---
+## Lesson 
 * 함수 이름이 마음에 안든다. ask_int
 - get_choice : 반환값을 명확히 알려준다.
 - select_menu : 사용자 경험 중심
@@ -267,13 +269,14 @@ print(q.is_correct(2))  # True
 🔷 `git add main.py && git commit -m "Feat: Quiz 클래스 추가"`
 
 🧠 "self가 없으면 무슨 문제가 생기나?"
-- 변수에서 삭제 :
-  객체 데이터 사용 불가 > 객체 변수가 아닌 로컬 변수로 인식
-- 입력 인자에서 삭제 :
-  파이썬은 객체.메서드()를 호출할 때 자동으로 객체 자신을 첫 번째 인자로 입력
-  하지만, 받아들일 자리가 없어서 "TypeError" 발생 
 
 ---
+## Lesson 
+* self를 변수에서 삭제하면? :
+  객체 데이터 사용 불가 > 객체 변수가 아닌 로컬 변수로 인식
+* self를 입력 인자에서 삭제하면? :
+  파이썬은 객체.메서드()를 호출할 때 자동으로 객체 자신을 첫 번째 인자로 입력
+  하지만, 받아들일 자리가 없어서 "TypeError" 발생 
 
 * 새롭게 정의된 변수 : choice, user_choice
 * enumberate : 리스트의 인덱스(i)와 값(choice)을 튜플 형태로 반환
@@ -307,6 +310,7 @@ DEFAULT_QUIZZES = [
 🔷 `git add main.py && git commit -m "Feat: 기본 퀴즈 5개 추가"`
 
 ---
+## Lesson 
 * List : 여러 개의 데이타를 하나의 묶음으로 관리할 수 있는 자료형
 - 대괄호 []를 사용
 - 하나의 리스트 내에 서로 다른 유형의 데이타를 담을 수 있다. 
@@ -386,6 +390,7 @@ git push
 
 
 ---
+## Lesson 
 * git checkout 특정 시점이나 다른 브랜치로 작업 공간을 이동하겠다.
 - 의미 : 보관된 많은 코드 중에서, 특정한 버전을 "대여(checkout)"해서 보겠다.
 - 다른 브랜치로 이동하기 : git checkout <브랜치명>
@@ -459,6 +464,7 @@ def add_quiz(quizzes):
 🔷 `git add main.py && git commit -m "Feat: 퀴즈 추가 기능"`
 
 ---
+## Lesson 
 * range(1,5) : 1에서 4까지만, end-start하면 쉽게 계산 (5-1=4번 반복)
 * choices = []은 for문 밖에서 미리 선언해야 한다.
 ---
@@ -525,7 +531,7 @@ def main():
 --- 2026.08.03 13:49
 
 ---
-
+## Lesson 
 * 나 돌아갈래
 - git log -oneline : 돌아가고 싶은 과거 커밋의 앞자리 7글자 주소 찾기
 - git checkout a1b2c3d. /최신 버전 git switch --detach <커밋해시>
@@ -685,6 +691,7 @@ if __name__ == "__main__":
 ```
 
 ---
+## Lesson 
 * to_dict : Quiz 객체를 Dictionary (Key-Value Pair) 데이터로 변환
 - Dictionary 변환은 Serialization의 첫 단계
 - Serialization : 메모리속에 있는 복잡한 입체 구조의 데이타를 네트워크에 보낼 수 있는 형태(0, 1의 반복)로 바꾸는 행위
@@ -712,7 +719,7 @@ STATE_FILE = "state.json"
 ```
 
 ---
-
+## Lesson 
 * import 필요한 도구 불러오기
 - json : 직렬화 수행 도구
 - os : 찾고 있는 파일이 실제로 존재하는가?를 확인할 때
@@ -759,7 +766,7 @@ STATE_FILE = "state.json"
             print("⚠️ 저장 중 오류가 발생했습니다.")
 ```
 ---
-
+## Lesson 
 * with open(...) as f : 화일을 열고, 작업 끝나면 안전하게 닫는다.
 - 파일을 열고, 안 닫으면 메모리 누수가 발생하는 문제 원천 차단
 - with : ~한 상태에서. 이 블록 안에서는 이 상태가 유지된다.
