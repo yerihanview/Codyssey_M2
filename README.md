@@ -48,8 +48,12 @@ json
 }
 ​
 ```
+
 ## 설계 문서
 [설계문서](./docs/퀴즈게임_구조A_설계문서.md)
+
+## 프로젝트 진행과정
+[진행과정](./docs/퀴즈게임_구조A_프로젝트_여정.md)
 
 ## 개발 환경
 ![VSCode](docs/screenshots/vscode.png)
