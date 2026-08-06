@@ -48,6 +48,8 @@ json
 }
 ​
 ```
+## 설계 문서
+[설계문서](./docs/퀴즈게임_구조A_설계문서.md)
 
 ## 개발 환경
 ![VSCode](docs/screenshots/vscode.png)
